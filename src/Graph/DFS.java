@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by shailendralohia on 1/21/18.
  */
-public class DFS {
+public class DFS { // Pre-order in Binary tree
     private int vertex;
     //private LinkedList<Integer> adj[]; // adjency List
     private List<Integer> adj[];

@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Created by shailendralohia on 1/21/18.
  */
-public class BFS {
+public class BFS { // Level order in binary tree
     private int vertex;
     //private LinkedList<Integer> adj[];
     private List<Integer> adj[];    // adjency List
