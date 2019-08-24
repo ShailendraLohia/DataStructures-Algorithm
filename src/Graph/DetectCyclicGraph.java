@@ -27,53 +27,93 @@ public class DetectCyclicGraph {
         dfs.addEdge(0,1);
         dfs.addEdge(0,2);
         dfs.addEdge(1,2);
-         dfs.addEdge(2,0);
+        dfs.addEdge(2,0);
         dfs.addEdge(2,3);
-        //dfs.addEdge(3,3);
+        dfs.addEdge(3,3);
 
-        boolean result= isCyclic();
+        boolean result= dfs.isCyclic();
         System.out.println("Given Graph is cyclic: " + result);
     }
 
-    public static boolean isCyclic() {
-        Stack stack=new Stack();
-        boolean visited[]=new boolean[vertex];
-        for(int i=0;i<vertex;i++) {
-            visited[i]=false;
-        }
-        for(int j=0;j<vertex;j++) {
-            if(visited[j]==false) {
-                cyclicUtils(visited,stack,j);
-            }
-        }
-        return false;
-    }
+    private boolean isCyclic()
+    {
 
-    public  static boolean cyclicUtils(boolean[] visited, Stack stack,int vertexData) {
-        visited[vertexData]=true;
-        if(!stack.contains(vertexData)) {
-            stack.push(vertexData);
-        }else {
-            return true;
-        }
-        adj[vertexData].size();
+        // Mark all the vertices as not visited and
+        // not part of recursion stack
+        boolean[] visited = new boolean[vertex];
+        boolean[] recStack = new boolean[vertex];
 
-        Iterator<Integer> iterator=adj[vertexData].listIterator();
-        while(iterator.hasNext()) {
-            int nextData=iterator.next();
 
-            if(!visited[nextData]) {
-                cyclicUtils(visited,stack,nextData);
-            }
-            /*if(stack.contains(nextData)) {
+        // Call the recursive helper function to
+        // detect cycle in different DFS trees
+        for (int i = 0; i < vertex; i++)
+            if (isCyclicUtil(i, visited, recStack))
                 return true;
-            }*/
-        }
 
-        while(!stack.isEmpty()) {
-
-        }
         return false;
-
     }
+    private boolean isCyclicUtil(int i, boolean[] visited, boolean[] recStack)
+    {
+        if (recStack[i])
+            return true;
+
+//        if (visited[i])
+//            return false;
+//
+//        visited[i] = true;
+
+        recStack[i] = true;
+
+        List<Integer> children = adj[i];
+
+        for (Integer c: children)
+            if (isCyclicUtil(c, visited, recStack))
+                return true;
+
+        recStack[i] = false;
+
+        return false;
+    }
+
+//    public static boolean isCyclic() {
+//        Stack stack=new Stack();
+//        boolean visited[]=new boolean[vertex];
+//        for(int i=0;i<vertex;i++) {
+//            visited[i]=false;
+//        }
+//        for(int j=0;j<vertex;j++) {
+//            if(visited[j]==false) {
+//                cyclicUtils(visited,stack,j);
+//            }
+//        }
+//        return false;
+//    }
+
+//    public  static boolean cyclicUtils(boolean[] visited, Stack stack,int vertexData) {
+//        visited[vertexData]=true;
+//        if(!stack.contains(vertexData)) {
+//            stack.push(vertexData);
+//        }else {
+//            return true;
+//        }
+//        adj[vertexData].size();
+//
+//        Iterator<Integer> iterator=adj[vertexData].listIterator();
+//        while(iterator.hasNext()) {
+//            int nextData=iterator.next();
+//
+//            if(!visited[nextData]) {
+//                cyclicUtils(visited,stack,nextData);
+//            }
+//            /*if(stack.contains(nextData)) {
+//                return true;
+//            }*/
+//        }
+//
+//        while(!stack.isEmpty()) {
+//
+//        }
+//        return false;
+//
+//    }
 }
