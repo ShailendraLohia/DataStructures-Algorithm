@@ -23,8 +23,8 @@ public class GraphImpl<T> {
         }
     }
 
-    HashMap<T, Vertex> hm = new HashMap<T, Vertex>();
-    ArrayList<Edge> EdgesList = new ArrayList<Edge>();
+    HashMap<T, Vertex<T>> hm = new HashMap<>();
+    ArrayList<Edge<T>> EdgesList = new ArrayList<>();
     boolean directed;
 
     GraphImpl(boolean dir) {
@@ -61,14 +61,14 @@ public class GraphImpl<T> {
         return v.getConnected_Vertices();
     }
 
-    ArrayList<Vertex> getAllVertices() {
-        ArrayList<Vertex> res = new ArrayList<Vertex>();// hm.values();
+    ArrayList<Vertex<T>> getAllVertices() {
+        ArrayList<Vertex<T>> res = new ArrayList<>();// hm.values();
         for (Vertex v : hm.values())
             res.add(v);
         return res;
     }
 
-    public List<Edge> getAllEdges() {
+    public List<Edge<T>> getAllEdges() {
         return EdgesList;
     }
 

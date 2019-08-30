@@ -4,15 +4,15 @@ package Graph;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DisjointSets {
-    private Map<Long,Node> map = new HashMap<>();
+public class DisjointSets<T> {
+    private Map<T,Node> map = new HashMap<>();
     class Node {
-        long data;
+        T data;
         Node parent;
         int rank;
     }
 
-    public void makeSet(long data) {
+    public void makeSet(T data) {
         Node node = new Node();
         node.data=data;
         node.parent=node;
@@ -30,7 +30,7 @@ public class DisjointSets {
 
     }
 
-    public boolean union(long data1, long data2) {
+    public boolean union(T data1, T data2) {
         Node node1=map.get(data1);
         Node node2 = map.get(data2);
 
@@ -49,12 +49,12 @@ public class DisjointSets {
 
         return true;
     }
-    public long findSet(long data) {
+    public T findSet(T data) {
         return findSet(map.get(data)).data;
     }
 
     public static void main(String[] args) {
-        DisjointSets ds = new DisjointSets();
+        DisjointSets<Integer> ds = new DisjointSets();
 
         ds.makeSet(1);
         ds.makeSet(2);
