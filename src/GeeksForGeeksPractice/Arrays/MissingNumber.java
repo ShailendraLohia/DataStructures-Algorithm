@@ -1,4 +1,4 @@
-package GeeksForGeeksPractice;
+package GeeksForGeeksPractice.Arrays;
 
 import java.util.Scanner;
 
