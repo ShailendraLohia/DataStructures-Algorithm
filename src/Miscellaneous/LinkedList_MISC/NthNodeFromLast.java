@@ -33,5 +33,6 @@ public class NthNodeFromLast {
                 System.out.println(main_ptr.data);
 
         }
+        //return main_ptr.data;
     }
 }
