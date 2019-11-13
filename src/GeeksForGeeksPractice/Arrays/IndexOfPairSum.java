@@ -1,6 +1,12 @@
 package GeeksForGeeksPractice.Arrays;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.time.Month;
+import java.time.Period;
+import java.time.YearMonth;
 import java.util.HashMap;
+import java.util.stream.IntStream;
 
 public class IndexOfPairSum {
     public static void main(String[] args) {
@@ -12,14 +18,12 @@ public class IndexOfPairSum {
     public static void findIndexOfPairSum(int[]arr, int sum) {
         HashMap<Integer,Integer> map=new HashMap<>();
 
-        for(int i=0;i<arr.length;i++) {
-            int temp= sum-arr[i];
-
-            if(map.containsKey(temp)) {
-                System.out.println(map.get(temp)+ "," + i);
+        IntStream.range(0, arr.length).forEach(i -> {
+            int temp = sum - arr[i];
+            if (map.containsKey(temp)) {
+                System.out.println(map.get(temp) + "," + i);
             }
-            map.put(arr[i],i);
-        }
-
+            map.put(arr[i], i);
+        });
     }
 }
