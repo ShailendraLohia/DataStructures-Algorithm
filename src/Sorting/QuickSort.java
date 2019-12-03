@@ -5,7 +5,9 @@ package Sorting;
  */
 public class QuickSort {
     public static void main(String[] args) {
-        int[] inputArr = {45,23,11,89,77,98,4,28,65,43};
+        int[] inputArr = {1,5,7,8,3,9,4,6};
+
+        //45,23,11,89,77,98,4,28,65,43
         //QuickSort ms= new QuickSort();
         quickSorting(inputArr,0, inputArr.length-1);
         for(int i: inputArr) {
@@ -26,7 +28,7 @@ public class QuickSort {
         int pivot=arr[end];
         int pIndex=start;
 
-        for(int i=start;i<=end-1;i++) {
+        for(int i=start;i<=end-1;i++) { // iterate before pivot position
             if(arr[i]<=pivot) {
                 int temp=arr[i];
                 arr[i]=arr[pIndex];
@@ -35,6 +37,7 @@ public class QuickSort {
                 pIndex++;
             }
         }
+        //Swap pivot position.
         int temp=arr[pIndex];
         arr[pIndex]=pivot;
         arr[end]=temp;

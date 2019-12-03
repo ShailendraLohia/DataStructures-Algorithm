@@ -4,11 +4,11 @@ import java.util.Stack;
 
 public class InfixToPostfix {
     public static void main(String[] args) {
-        System.out.println(infixToPrefic("(A+B)*C-D"));
+        System.out.println(infixToPostfix("(A+B)*C-D"));
 
     }
 
-    public static String infixToPrefic(String expression) {
+    public static String infixToPostfix(String expression) {
         String result = "";
         Stack<Character> stack = new Stack<>();
 

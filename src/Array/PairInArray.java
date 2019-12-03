@@ -9,7 +9,7 @@ import java.util.List;
 public class PairInArray {
     public static void main(String[] args) {
         int[] arr= new int[] {11, 15, 6, 8, 9, 10};
-        boolean result= findSumPair(arr,arr.length,22);
+        boolean result= findSumPair(arr,arr.length,23);
         System.out.println(result);
     }
 

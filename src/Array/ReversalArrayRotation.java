@@ -15,8 +15,8 @@ public class ReversalArrayRotation {
     public static void reversalRotate(int[] arr, int rotate) {
         int arrLength=arr.length;
         reverseArray(arr,0,rotate-1);
-        reverseArray(arr,rotate,arrLength-1);
-        reverseArray(arr,0, arrLength-1);
+       // reverseArray(arr,rotate,arrLength-1);
+        //reverseArray(arr,0, arrLength-1);
 
     }
 
